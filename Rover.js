@@ -1,16 +1,15 @@
 class Rover {
 
-
-  constructor(currentX, currentY) {
-
+  constructor(startX, startY, startDirection) {
     console.log('Creating a new Rover');
-    this.x = currentX;
-    this.y = currentY;
-
-    this.direction = 'N';
-
+    this.x = startX;
+    this.y = startY;
+    this.direction = startDirection;
   }
 
+  getDirection() {
+    return this.direction;
+  }
 
   turnLeft() {
     console.log('turning left');
@@ -48,7 +47,6 @@ class Rover {
     } else {
       console.log('No valid direction!');
     }
-
     console.log('New direction ' + this.direction);
 
   }
@@ -73,7 +71,12 @@ class Rover {
 
   }
 
+  getPosition() {
+    return this.x + ' ' + this.y + ' ' + this.direction
+  }
+
 }
+
 
 
 module.exports = Rover;
