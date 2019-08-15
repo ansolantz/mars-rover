@@ -5,10 +5,27 @@ class Rover {
     this.x = startX;
     this.y = startY;
     this.direction = startDirection;
+    this.directionName = this.getDirectionName();
   }
 
   getDirection() {
     return this.direction;
+  }
+
+  getDirectionName() {
+
+    if (this.direction === 'N') {
+      this.directionName = 'North';
+    } else if (this.direction === 'S') {
+      this.directionName = 'South';
+    }
+    else if (this.direction === 'E') {
+      this.directionName = 'East';
+    }
+    else if (this.direction === 'W') {
+      this.directionName = 'West';
+    }
+    return this.directionName;
   }
 
   turnLeft() {
@@ -54,7 +71,7 @@ class Rover {
 
   moveForward() {
     console.log('Moving forward')
-    console.log('Direction: ' + this.direction)
+    console.log('Direction: ' + this.getDirectionName())
 
     if (this.direction === 'N') {
       this.y = this.y + 1
@@ -68,7 +85,8 @@ class Rover {
       console.log('Not a valid move!');
     }
 
-    console.log('New position: ' + 'x:' + this.x + ', y:' + this.y)
+    console.log('New position: ' + 'x:' + this.x + ' y:' + this.y + ' ' + this.direction)
+ 
 
   }
 
