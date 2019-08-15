@@ -1,7 +1,7 @@
 class Rover {
 
   constructor(startX, startY, startDirection) {
-    console.log('Creating a new Rover');
+    // console.log('Creating a new Rover');
     this.x = startX;
     this.y = startY;
     this.direction = startDirection;
@@ -12,7 +12,7 @@ class Rover {
   }
 
   turnLeft() {
-    console.log('turning left');
+    console.log('Turning left');
     console.log('Old direction: ' + this.direction);
 
     if (this.direction === 'N') {
@@ -28,12 +28,12 @@ class Rover {
     } else {
       console.log('No valid direction!');
     }
-    console.log('New direction ' + this.direction);
+    console.log('New direction is ' + this.direction);
 
   }
 
   turnRight() {
-    console.log('turning right')
+    console.log('Turning right')
     if (this.direction === 'N') {
       this.direction = 'E';
     } else if (this.direction === 'S') {
@@ -47,7 +47,8 @@ class Rover {
     } else {
       console.log('No valid direction!');
     }
-    console.log('New direction ' + this.direction);
+    console.log('New direction is ' + this.direction);
+
 
   }
 
