@@ -1,11 +1,12 @@
 class Rover {
 
-  constructor(startX, startY, startDirection) {
+  constructor(startX, startY, startDirection, plateau) {
     // console.log('Creating a new Rover');
     this.x = startX;
     this.y = startY;
     this.direction = startDirection;
     this.directionName = this.getDirectionName();
+    this.plateau = plateau;
   }
 
   getDirection() {
@@ -13,7 +14,6 @@ class Rover {
   }
 
   getDirectionName() {
-
     if (this.direction === 'N') {
       this.directionName = 'North';
     } else if (this.direction === 'S') {
@@ -30,7 +30,7 @@ class Rover {
 
   turnLeft() {
     console.log('Turning left');
-    console.log('Old direction: ' + this.direction);
+    //console.log('Old direction: ' + this.direction);
 
     if (this.direction === 'N') {
       this.direction = 'W';
@@ -43,9 +43,9 @@ class Rover {
     else if (this.direction === 'E') {
       this.direction = 'N';
     } else {
-      console.log('No valid direction!');
+      console.log('Not a valid direction!');
     }
-    console.log('New direction is ' + this.direction);
+    //console.log('New direction is ' + this.direction);
 
   }
 
@@ -62,32 +62,35 @@ class Rover {
     else if (this.direction === 'E') {
       this.direction = 'S';
     } else {
-      console.log('No valid direction!');
+      console.log('Not a valid direction!');
     }
-    console.log('New direction is ' + this.direction);
+    //console.log('New direction is ' + this.direction);
 
 
   }
 
   moveForward() {
-    console.log('Moving forward')
+    
     console.log('Direction: ' + this.getDirectionName())
 
-    if (this.direction === 'N') {
-      this.y = this.y + 1
-    } else if (this.direction === 'S') {
-      this.y = this.y - 1
-    } else if (this.direction === 'W') {
-      this.x = this.x - 1
-    } else if (this.direction === 'E') {
-      this.x = this.x + 1
+    if (this.plateau.isMovePossible(this.x, this.y, this.direction)) {
+      console.log('Moving rover');
+      if (this.direction === 'N') {
+        this.y = this.y + 1
+      } else if (this.direction === 'S') {
+        this.y = this.y - 1
+      } else if (this.direction === 'W') {
+        this.x = this.x - 1
+      } else if (this.direction === 'E') {
+        this.x = this.x + 1
+      } else {
+        console.log('Not a valid direction, rover is not moving.');
+      }
+      console.log('New position: ' + 'x:' + this.x + ' y:' + this.y + ' ' + this.direction)
     } else {
-      console.log('Not a valid move!');
+      console.log('The rover can not move outside the plateau.')
     }
-
-    console.log('New position: ' + 'x:' + this.x + ' y:' + this.y + ' ' + this.direction)
- 
-
+   
   }
 
   getPosition() {

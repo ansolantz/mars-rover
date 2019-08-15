@@ -44,7 +44,7 @@ processFileInstructions = (instructions) => {
         const startY = parseInt(startPosition[1]);
         const startDirection = startPosition[2];
 
-        const myRover = new Rover(startX, startY, startDirection);
+        const myRover = new Rover(startX, startY, startDirection, plateauGrid);
         const movements = instructions[i + 1].split('');
 
        
@@ -61,6 +61,13 @@ processFileInstructions = (instructions) => {
     }
 }
 
+//Setting rover start position and plateau size 
+const gridSizeX = 5;
+const gridSizeY = 5;
+const roverStartX = 0;
+const roverStartY = 0;
+const roverStartDirection = 'N';
+
 // Prompt user to input data in console.
 console.log('*********************************************************************************\n');
 console.log('*** MARS ROVER ***')
@@ -69,6 +76,8 @@ console.log('Please input text in command line to move the rover.\n');
 console.log('The valid commands are: ‘L’, ‘R’ and ‘M’.');
 console.log('‘L’ and ‘R’ makes the rover spin 90 degrees left or right respectively, \nwithout moving from its current spot.');
 console.log('‘M’ moves the rover forward one grid point.\n');
+console.log('The plateau size is ' + gridSizeX + ' x ' + gridSizeY);
+console.log('The rovers start position is ' + roverStartX + ', ' + roverStartY + ' and the start direction is ' + '‘' + roverStartDirection + '‘.\n')
 
 console.log('You can also run commands from a file. The file name is ’process-instructions.txt’');
 console.log('The program will move rover(s) from the instructions in the file.');
@@ -79,8 +88,9 @@ console.log('To exit, type ‘exit’.\n')
 console.log('********************************************************************************');
 
 
-const plateau = new Grid(5, 5);
-const rover1 = new Rover(0, 0, 'N');
+
+const plateau = new Grid(gridSizeX, gridSizeY );
+const rover1 = new Rover(roverStartX, roverStartY, roverStartDirection, plateau);
 
 
 // When user input data and click enter key.
