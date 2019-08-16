@@ -99,6 +99,6 @@ class Rover {
 
 }
 
-
-
+if (typeof module !== 'undefined') {
 module.exports = Rover;
+}

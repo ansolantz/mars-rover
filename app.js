@@ -1,6 +1,6 @@
 
-const Rover = require('./rover');
-const Grid = require('./grid');
+const Rover = require('./src/rover');
+const Grid = require('./src/grid');
 const fs = require('fs');
 
 // Get process.stdin as the standard input object.
@@ -10,7 +10,6 @@ var standard_input = process.stdin;
 standard_input.setEncoding('utf-8');
 
 moveRover = (rover, movements) => {
-
     movements.forEach(move => {
         if (move === "M") {
             rover.moveForward();
@@ -81,7 +80,7 @@ console.log('The rovers start position is ' + roverStartX + ', ' + roverStartY +
 
 console.log('You can also run commands from a file. The file name is ’process-instructions.txt’');
 console.log('The program will move rover(s) from the instructions in the file.');
-console.log('These rovers are diferente from the rovers you controle manually.');
+console.log('These rovers are diferente from the rover you controle manually.');
 console.log('To load the file, please type ‘file’ in command line.\n')
 
 console.log('To exit, type ‘exit’.\n')

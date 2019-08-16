@@ -4,7 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "app": "node app.js",
+    "web": "npx serve"
   },
   "repository": {
     "type": "git",

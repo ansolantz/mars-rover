@@ -1,5 +1,5 @@
-const Rover = require('../rover');
-const Grid = require('../grid');
+const Rover = require('./../src/rover');
+const Grid = require('./../src/grid');
 const fs = require('fs');
 
 
