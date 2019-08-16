@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "app": "node app.js",
-    "web": "npx serve"
+    "web": "open index.html"
   },
   "repository": {
     "type": "git",

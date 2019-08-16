@@ -81,10 +81,14 @@ section {
 }
 
 .plateau {
+  margin-top: 20px;
+  width: 300px;
+  height: 300px;
   font-family: 'Arcade Classic', 'Courier New', Courier;
+  background-color: #c0c0c0;
   color: #ffffff;
   font-size: 20px;
-  padding: 10px 0 8px 0;
+  padding: 0;
 }
 
 .plateauBorder {
@@ -97,7 +101,7 @@ section {
 #cordDisplay {
   font-family: 'Arcade Classic', 'Courier New', Courier;
   color: #ffffff;
-  border: 1px solid: #c0c0c0;
+  border: 1px solid #c0c0c0;
   font-size: 20px;
   padding: 10px 0 8px 0;
 }
