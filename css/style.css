@@ -1,7 +1,16 @@
-
 @font-face {
   font-family: "Arcade Classic";
   src: url("../fonts/ARCADECLASSIC.TTF");
+}
+
+@font-face {
+  font-family: "Space Ranger";
+  src: url("../fonts/SpaceRangerSemiItalic-D900.otf");
+}
+
+@font-face {
+  font-family: "Space Ranger 3d";
+  src: url("../fonts/SpaceRanger3DItalic-Z3JK.otf");
 }
 
 /* ---- reset ---- */
@@ -18,32 +27,31 @@ div {
   display: block;
 }
 
-
 body {
   margin: 0;
   padding: 0;
   background-color: #000000;
   font-family: 'Courier New', Courier, monospace;
   font-size: 16px;
-  line-height: 147%;
 }
-
 
 /* ---- typography ---- */
 
 h1 {
-  font-family: 'Arcade Classic', 'Courier New', Courier;
+  font-family: 'Space Ranger 3d', 'Courier New', Courier;
   text-align: center;
-  color: #fff000;
-  font-size: 50px;
-  padding: 5px;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: normal;
+  line-height: normal;
+  padding: 0;
   /* margin: 10px 0 10px 0; */
-  /* text-shadow: 2px 2px #ffffff; */
-  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  /* text-shadow: 2px 2px #888888; */
+  text-shadow: 2px 0 0 #666, -2px 0 0 #666, 0 2px 0 #666, 0 -2px 0 #666, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 h2 {
-  font-family: 'Arcade Classic', 'Courier New', Courier;
+  font-family: 'Space Ranger', 'Courier New', Courier;
   text-align: center;
   color: #fff000;
   font-weight: 200;
@@ -59,7 +67,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* align-content: center; */
+  padding: 0;
 }
 
 section {
@@ -72,61 +80,54 @@ section {
 
 /* ---- CLASSES ---- */
 
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 20px;
+}
+
 .titleSign {
-  width: 350px;
-  background-color: #f67622;
-  border: 5px solid #f80126;
+  width: 300px;
+  background-color: #ffd510;
+  border: 5px solid #9c9cad;
   border-radius: 20px;
-  margin: 20px 0 20px 0;
+  padding: 0;
 }
 
 .plateau {
-  margin-top: 20px;
+  margin: 10px 0 20px 0; 
   width: 300px;
   height: 300px;
   font-family: 'Arcade Classic', 'Courier New', Courier;
   background-color: #c0c0c0;
   color: #ffffff;
-  font-size: 20px;
   padding: 0;
 }
 
 .plateauBorder {
-  width: 250px;
+  width: 308px;
+  height: 308px;
   border: 1px double blue;
   border-radius: 15px;
-  padding: 20px;
-}
-
-#cordDisplay {
-  font-family: 'Arcade Classic', 'Courier New', Courier;
-  color: #ffffff;
-  border: 1px solid #c0c0c0;
-  font-size: 20px;
-  padding: 10px 0 8px 0;
 }
 
 /* ---- ID's ---- */
 
-#site-header {
+#cordDisplay {
   font-family: 'Arcade Classic', 'Courier New', Courier;
-  padding: 30px 0;
-  color: white;
-  background: #111;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px;
 }
-
-
-
-
-#site-main {
-  margin-bottom: 60px;
-}
-
 
 /* ---- components ---- */
 
-.button, .start-button, .restart-button {
-  margin: 25px 0 25px 0;
+.button {
+  margin: 5px 0 5px 0;
   -moz-box-shadow: 0px 1px 0px 0px #fff6af;
   -webkit-box-shadow: 0px 1px 0px 0px #fff6af;
   box-shadow: 0px 1px 0px 0px #fff6af;
@@ -139,42 +140,5 @@ section {
   font-weight: 300;
   padding: 8px 20px;
   text-decoration: none;
-}
-
-
-
-@media (min-width: 768px) {
-  .container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-  /* ---- section ---- */
-  /* section.testimonials .button {
-    margin-bottom: 10px;
-  } */
-  .game-container {
-    width: 476px;
-    height: 560px;
-    /* border: 1px solid blue; */
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-  .game-container {
-    width: 476px;
-    height: 320px;
-    /* border: 1px solid blue; */
-  }
+  outline: none;
 }

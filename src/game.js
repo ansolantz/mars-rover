@@ -1,7 +1,7 @@
 
 class Game {
 
-  constructor(canvas, cordDisplayDiv) {
+  constructor(canvas, cordDisplayDiv, turnLeftButton, turnRightButton, moveForwardButton) {
     console.log('Creating Game');
 
     this.canvas = canvas;
@@ -10,39 +10,38 @@ class Game {
 
     this.reset = false;
     this.cordDisplayDiv = cordDisplayDiv;
+    this.turnLeftButton = turnLeftButton;
+    this.turnRightButton = turnRightButton;
+    this.moveForwardButton = moveForwardButton;
 
     this.plateau = new Grid(5, 5);
     this.rover = new Rover(0, 0, 'N', this.plateau);
 
-
     document.onkeydown = (event) => {
       switch (event.keyCode) {
         case 37:
-          console.log('left');
           this.rover.turnLeft();
           break;
         case 38:
-          console.log('move');
           this.rover.moveForward();
           break;
         case 39:
-          console.log('right');
           this.rover.turnRight();
           break;
         case 40:
-          console.log('----');
           this.rover.moveForward();
           break;
       }
     };
+
+    this.turnLeftButton.addEventListener('click', () => this.rover.turnLeft());
+    this.turnRightButton.addEventListener('click', () => this.rover.turnRight());
+    this.moveForwardButton.addEventListener('click', () =>  this.rover.moveForward());
   }
 
 
   startLoop() {
-
     const loop = () => {
-
-      this.updateCanvas();
       this.clearCanvas();
       this.drawCanvas();
 
@@ -58,65 +57,21 @@ class Game {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
   }
 
-  updateCanvas() {
-    //console.log('Update canvas')
-
-
-  }
-
-
   drawCanvas() {
-
-    //console.log('draw canvas')
-
     this.drawRover()
-
-    this.cordDisplayDiv.innerHTML = `X: ${this.rover.x} Y: ${this.rover.y} <br> Direction: ${this.rover.direction} `
+    this.cordDisplayDiv.innerHTML = `X: ${this.rover.x} &nbsp; Y: ${this.rover.y} <br> Direction: ${this.rover.direction} `
   }
 
   drawRover() {
-
-
-
-
-
-
-    // ctx.arc(x, y, radius, startAngle, endAngle)
-    //  Math.PI * 2 - Full circle    Math.PI * 1 -  Half circle
-
     this.ctx.beginPath();
     this.ctx.fillStyle = "rgb(255, 189, 16)";
-
-
-    //this.ctx.fillRect(0, 450, 50, 50);
-
 
     const xCanvas = this.rover.x * 50
     const yCanvas = 5 * 50 - this.rover.y * 50
 
-    // let img = document.getElementById("wall-e");
-
-    // if(this.rover.getDirection() === 'W'){
-    //   img = document.getElementById("wall-e-left");
-    // }else if(this.rover.getDirection() === 'E'){
-    //   img = document.getElementById("wall-e-right");
-    // }
-    // else {
-    //   img = document.getElementById("wall-e");
-    // }
-
-    // this.ctx.drawImage(img, xCanvas, yCanvas, 50, 50);
-
-
     this.ctx.fillRect(xCanvas, yCanvas, 50, 50)
-
-    this.ctx.fillStyle = "rgb(250, 170, 44)";
+    this.ctx.fillStyle = "rgb(150, 170, 44)";
     this.ctx.closePath();
-
-    this.ctx.strokeRect(xCanvas, yCanvas, 50, 50)
-    this.ctx.fill();
-    this.ctx.closePath();
-
 
     let leftEyeX = 0;
     let leftEyeY = 0;
@@ -198,14 +153,5 @@ class Game {
     this.ctx.fill();
     this.ctx.closePath();
     //------------------
-
-
-    // this.ctx.beginPath();
-    // this.ctx.arc(this.rover.x, this.rover.y, 20, 0, 2 * Math.PI);
-    // this.ctx.fillStyle = '#ff3344';
-    // this.ctx.fill();
-    // this.ctx.closePath();
   }
-
-
 }

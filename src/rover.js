@@ -1,7 +1,6 @@
 class Rover {
 
   constructor(startX, startY, startDirection, plateau) {
-    // console.log('Creating a new Rover');
     this.x = startX;
     this.y = startY;
     this.direction = startDirection;
@@ -30,7 +29,6 @@ class Rover {
 
   turnLeft() {
     console.log('Turning left');
-    //console.log('Old direction: ' + this.direction);
 
     if (this.direction === 'N') {
       this.direction = 'W';
@@ -45,8 +43,6 @@ class Rover {
     } else {
       console.log('Not a valid direction!');
     }
-    //console.log('New direction is ' + this.direction);
-
   }
 
   turnRight() {
@@ -64,9 +60,6 @@ class Rover {
     } else {
       console.log('Not a valid direction!');
     }
-    //console.log('New direction is ' + this.direction);
-
-
   }
 
   moveForward() {
@@ -90,7 +83,6 @@ class Rover {
     } else {
       console.log('The rover can not move outside the plateau.')
     }
-   
   }
 
   getPosition() {

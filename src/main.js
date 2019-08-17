@@ -1,10 +1,4 @@
 
-console.log('main');
-// document.addEventListener("DOMContentLoaded", function (event) {
-//   main();
-// });
-
-
 function main() {
 
   const mainElement = document.querySelector('main');
@@ -14,16 +8,21 @@ function main() {
     return mainElement;
   }
 
-  function buildScreen() {  //Building screen
-    // console.log('you are on the game screen')
+  function buildScreen() {
 
     const gameScreen = buildDom(`
-      <div id="cordDisplay"></div>
+     <div id="cordDisplay"></div>
       <section class="plateau">
-      <canvas></canvas>
+        <canvas></canvas>
       </section>
-
-      
+      <div>
+        <input type="button" id="moveForwardButton" class="button" value="Move &nbsp; Forward">
+      </div>
+      <div>
+        <input type="button" id="turnLeftButton" class="button" value="&#9668; Turn &nbsp; Left">
+        <input type="button" id="turnRightButton" class="button" value="Turn &nbsp; Right &#9658;">
+      </div>
+     
       `);
 
     const gameContainerElement = document.querySelector('.plateau');
@@ -35,8 +34,11 @@ function main() {
     canvasElement.setAttribute('height', height);
 
     const cordDisplayDiv = document.querySelector('#cordDisplay');
-
-    const game = new Game(canvasElement, cordDisplayDiv);
+    const turnLeftButton = document.querySelector('#turnLeftButton');
+    const turnRightButton = document.querySelector('#turnRightButton');
+    const moveForwardButton = document.querySelector('#moveForwardButton');
+    
+    const game = new Game(canvasElement, cordDisplayDiv, turnLeftButton, turnRightButton, moveForwardButton);
 
     game.startLoop();
   }
