@@ -1,8 +1,6 @@
 class Grid {
 
   constructor(xSize, ySize) {
-    //console.log('Creating a new Grid class');
-
     this.xSize = xSize;
     this.ySize = ySize;
   }
@@ -22,5 +20,6 @@ class Grid {
   }
 }
 
-
-module.exports = Grid;
+if (typeof module !== 'undefined') {
+  module.exports = Grid;
+}

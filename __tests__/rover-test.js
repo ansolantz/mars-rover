@@ -1,7 +1,6 @@
-const Rover = require('../rover');
-const Grid = require('../grid');
+const Rover = require('./../src/rover');
+const Grid = require('./../src/grid');
 const fs = require('fs');
-
 
 test('Turn left', () => {
   const plateau = new Grid(5, 5)
@@ -10,7 +9,6 @@ test('Turn left', () => {
   expect(myRover.getDirection()).toBe("W");
 });
 
-
 test('Turn right', () => {
   const plateau = new Grid(5, 5)
   const myRover = new Rover(0, 0, 'N', plateau);
@@ -18,14 +16,11 @@ test('Turn right', () => {
   expect(myRover.getDirection()).toBe("E");
 });
 
-
 test('Process instructions for one rover', () => {
   const instructions = ['5 5', '1 2 N', 'LMLMLMLMM'];
-
   const plateauSize = instructions[0].split(' ');
   const xSize = parseInt(plateauSize[0]);
   const ySize = parseInt(plateauSize[1]);
-
   const plateau = new Grid(xSize, ySize);
   const startPosition = instructions[1].split(' ');
   const startX = parseInt(startPosition[0]);
